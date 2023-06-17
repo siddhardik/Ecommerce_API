@@ -50,10 +50,10 @@ module.exports.create = async function(req,res){
             quantity:req.body.quantity
         });
         
-        //Saving the created product
+        //Saving the created newProduct from RAM to the database
         await newProduct.save();
 
-        // on success shows the created product 
+        // For successfully adding a new Product 
         return res.status(200).json({
             data : {
                 Product : {
@@ -61,7 +61,7 @@ module.exports.create = async function(req,res){
                     quantity : newProduct.quantity
                 }
             },
-            message : "Product Added!!"
+            message : "Product Added Successfully !!"
         });
         
     }catch(err){
@@ -81,40 +81,41 @@ module.exports.delete = async function(req,res){
 
     try{
 
-        //Extracting the id from the URL which are passed through params
+        //Extracting the id from the URL which are passed through params in request 
         const id = req.params.id;
 
-        // Fetching the product via its id
-        let product = await Product.findById(id);
+        // Fetching the product by using  id
+        let targetProduct  = await Product.findById(id);
 
-        // If product is not found
-        if(!product){
+        // If targetProduct  is not found
+        if(!targetProduct ){
 
             // Throws Error
             return res.status(404).json({
-                message: "Product not found!!"
+                message: " OOPS! Product not found!!"
             });
         }
         
         // Deleting the particular product
-        let deleteProduct = await product.deleteOne();
+        let deleteProduct = await Product.deleteOne();
 
         // on success shows the deleted product
         return res.status(200).json({
             data : {
                 product : {
-                    id : deleteProduct.id,
-                    name: deleteProduct.name,
-                    quantity: deleteProduct.quantity
+                    id : targetProduct.id,
+                    name: targetProduct.name,
+                    quantity: targetProduct.quantity
                 }
             },
-            message : "Product deleted successfully"
+            message : "product deleted"
         });
         
     }catch(err){
 
-        // To view error
-        console.log("****",err);
+       
+        // See The Error Message
+        console.log("Error is : ",err);
 
         //Throws error on failure
         return res.status(500).json({
@@ -128,7 +129,7 @@ module.exports.updateQuantity = async function(req,res){
     try{
         
         //Extracting the Quantity to update from the URL which are passed through query
-        const update_quantity = req.query.number;
+        const addingQuantity = req.query.number;
 
         //Extracting the id from the URL which are passed through params
         const id = req.params.id;
@@ -141,14 +142,14 @@ module.exports.updateQuantity = async function(req,res){
 
             // Throws Error
             return res.status(404).json({
-                message: "Product not found!!"
+                message: " OOPS! Product not found!!"
             });
         }
         
-        // Updating the quantity of the selected product
-        product.quantity += parseInt(update_quantity,10);
+        // Updating the quantity of the selected product, 10 denotes the decimal number System 
+        product.quantity += parseInt(addingQuantity,10);
         
-        // storing the updated product
+        // storing the updated product in DB
         let updatedProduct = await product.save();
         
 
@@ -161,13 +162,14 @@ module.exports.updateQuantity = async function(req,res){
                     quantity: updatedProduct.quantity
                 }
             },
-            message : "Product updated successfully"
+            message : "updated successfully"
         });
         
     }catch(err){
 
-        // To view error
-        console.log("****",err);
+    
+        // See The Error Message
+        console.log("Error is : ",err);
 
         //Throws error on failure
         return res.status(500).json({

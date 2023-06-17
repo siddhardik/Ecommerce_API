@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 
 // Creating a Schema for the product
 const productSchema = new mongoose.Schema({
+        // id:{
+        //     type : Number,
+        //     required: true
+        // },  => id refers mongo db every document's object id
         name : {
             type : String,
             required: true
