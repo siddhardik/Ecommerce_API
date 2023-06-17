@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // Connecting the database with Database Name ECommerce_API
-mongoose.connect("mongodb://127.0.0.1:27017/ECommerce_API");
+mongoose.connect("mongodb+srv://siddharthabhunia2001:6GnVPONcrpYzVK6c@ecommerce-api.5tnwrex.mongodb.net/?retryWrites=true&w=majority");
 
 const db = mongoose.connection;
 
@@ -12,7 +12,7 @@ db.on('error',console.error.bind(console,"Error connecting to MongoDB"));
 
 //on succesfull connection
 db.once('open',function(){
-    console.log(" Hurray ! Connected. Database Name:: ECommerce_API");
+    console.log(" Hurray ! Connected. Database Name:: ECommerce-API");
 });
 
 module.exports = db;
