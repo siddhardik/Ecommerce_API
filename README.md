@@ -21,7 +21,7 @@ localhost:3000/
 -	API to add products to the database
 URL [POST]: localhost:3000/products/create
 
-![Alt text](image.png)
+![image](https://github.com/siddhardik/Ecommerce_API/assets/95465948/7e5f4189-728d-4ab9-a0b9-a738377c91ec)
 
 
 
@@ -29,7 +29,7 @@ URL [POST]: localhost:3000/products/create
 URL [GET] : localhost:3000/products
 
 
-![Alt text](image-1.png)
+![image-1](https://github.com/siddhardik/Ecommerce_API/assets/95465948/bf29bc29-2d5b-49c1-8b9d-6707bdfd8fcd)
 
 
 
@@ -40,14 +40,15 @@ URL [GET] : localhost:3000/products
 -	API to delete products
 URL [DELETE] : localhost:3000/products/:id
 
-![Alt text](image-2.png)
+
+![image-2](https://github.com/siddhardik/Ecommerce_API/assets/95465948/733cc5a5-a34b-4eb5-9e65-c94cabda7385)
 
 
 
 -	API to update quantity of a product (can be incremented or decremented)
 URL [POST] : localhost:3000/products/:id/update_quantity/?number=10
 
-![Alt text](image-3.png)
+![image-3](https://github.com/siddhardik/Ecommerce_API/assets/95465948/38926001-8416-46c4-b0d3-9615c6d465ac)
 
 
 
