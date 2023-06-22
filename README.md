@@ -52,4 +52,30 @@ URL [POST] : localhost:3000/products/:id/update_quantity/?number=10
 
 
 
+# Folder Structure
+<pre>
 
+│   .gitignore
+│   index.js
+│   package-lock.json
+│   package.json
+│   README.md
+│
+├───config
+│       mongoose.js
+│
+├───controllers
+│       homeController.js
+│       productController.js
+│
+├───models
+│       product.js
+│
+├───node_modules
+└───routes
+        index.js
+        products_api.js
+
+
+
+<pre>
